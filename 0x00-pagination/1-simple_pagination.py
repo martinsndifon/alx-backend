@@ -5,7 +5,6 @@ import math
 from typing import Tuple, List
 
 
-
 def index_range(page: int, page_size: int) -> Tuple:
     """
     Return a tuple of size 2 containing a start and an end index
