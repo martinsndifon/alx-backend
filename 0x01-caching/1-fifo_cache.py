@@ -24,7 +24,6 @@ class FIFOCache(BaseCaching):
             del self.cache_data[self.keys[0]]
             self.keys.pop(0)
 
-
     def get(self, key):
         """Get an item by key"""
         if key is None or self.cache_data.get(key) is None:
