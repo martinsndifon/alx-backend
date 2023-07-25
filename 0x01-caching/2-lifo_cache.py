@@ -28,7 +28,6 @@ class LIFOCache(BaseCaching):
             self.keys.pop(-self.i)
             self.i += 1
 
-
     def get(self, key):
         """Get an item by key"""
         if key is None or self.cache_data.get(key) is None:
