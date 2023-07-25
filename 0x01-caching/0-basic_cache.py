@@ -1,12 +1,12 @@
-#!/usr/bin/python3
-"""ALX SE"""
+#!/usr/bin/env python3
+"""ALX SE Caching module"""
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """A caching system"""
+    """A basic caching system"""
     def __init__(self):
-        """Initialize the class"""
+        """Initialize the class with super() class call"""
         super().__init__()
 
     def put(self, key, item):
