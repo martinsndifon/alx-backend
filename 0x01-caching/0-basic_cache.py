@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ALX SE"""
-BaseCaching = __import__('base_caching').BaseCaching
+# BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
