@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ALX SE flask app"""
+"""ALX SE i18n"""
 from flask import Flask, render_template
 from flask_babel import Babel
 
@@ -7,14 +7,15 @@ from flask_babel import Babel
 class Config:
     """flask-babel config class"""
     LANGUAGES = ["en", "fr"]
-    TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize and set default config for babel
-babel = Babel(app, default_locale=Config.LANGUAGES[0], default_timezone=Config.TIMEZONE)
+babel = Babel(app)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
