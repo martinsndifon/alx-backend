@@ -14,9 +14,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize and set default config for babel
-babel = Babel(app)
-babel.default_locale = Config.LANGUAGES[0]
-babel.default_timezone = Config.TIMEZONE
+babel = Babel(app, default_locale=Config.LANGUAGES[0], default_timezone=Config.TIMEZONE)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
