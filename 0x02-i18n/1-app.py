@@ -7,12 +7,17 @@ from flask_babel import Babel
 class Config:
     """flask-babel config class"""
     LANGUAGES = ["en", "fr"]
+    TIMEZONE = "UTC"
 
-app =  Flask(__name__)
+
+app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize and set default config for babel
-babel = Babel(app, default_locale=Config.LANGUAGES[0], default_timezone='UTC')
+babel = Babel(app)
+babel.default_locale = Config.LANGUAGES[0]
+babel.default_timezone = Config.TIMEZONE
+
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello():
