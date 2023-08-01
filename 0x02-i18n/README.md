@@ -18,3 +18,28 @@ Unicode Support: Ensuring that the application can handle and display characters
 Right-to-Left (RTL) Support: Providing support for RTL languages such as Arabic and Hebrew, where the text and user interface elements are aligned from right to left.
 
 By adopting internationalization principles during software development, developers can create applications that are more accessible and user-friendly to a global audience, fostering better user engagement and international market reach. Once an application is internationalized, the process of adapting it to specific languages and regions is known as "localization" (l10n). Localization involves translating and customizing the application's content and user interface elements for specific target locales.
+
+
+### Example of parameterizing templates
+Create a babel.cfg file containing
+```bash
+[python: **.py]
+[jinja2: **/templates/**.html]
+extensions=jinja2.ext.autoescape,jinja2.ext.with_
+```
+Then initialize your translations with
+```bash
+$ pybabel extract -F babel.cfg -o messages.pot .
+```
+and your two dictionaries/languages with
+```bash
+$ pybabel init -i messages.pot -d translations -l en
+$ pybabel init -i messages.pot -d translations -l fr
+```
+Then edit files `translations/[en|fr]/LC_MESSAGES/messages.po` to provide the correct value for each message ID for each language. Use the following translations:
+
+Then compile your dictionaries/languages with 
+```bash
+$ pybabel compile -d translations
+```
+Reload the home page of your app to see the update
