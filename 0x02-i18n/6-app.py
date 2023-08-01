@@ -59,7 +59,7 @@ def get_locale():
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello():
     """Renders a welcome message in the browser"""
-    return render_template('5-index.html')
+    return render_template('6-index.html')
 
 
 if __name__ == "__main__":
