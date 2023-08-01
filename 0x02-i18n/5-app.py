@@ -24,6 +24,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user():
     """Gets the current mocked logged in user or None if not found"""
     login_as = request.args.get('login_as')
@@ -32,14 +33,16 @@ def get_user():
     user_id = int(login_as)
     try:
         return users[user_id]
-    except:
+    except KeyError:
         return None
+
 
 @app.before_request
 def before_request():
     """Execution to take place before any request is made"""
     user = get_user()
     g.user = user
+
 
 @babel.localeselector
 def get_locale():
